@@ -14,11 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-=======
- 
->>>>>>> c5f530fa6b7190f1d53764ed76580877496bd88b
+
+Route::get('/hola', 'HomeController@index1')->name('hola');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
