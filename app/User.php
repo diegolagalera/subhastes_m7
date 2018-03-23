@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nom','cognom', 'dni', 'pais' ,'codi_postal' ,'ciutat' ,'telefon', 'email','email_token','password','active','verified','id_rol',
+        'name','surname', 'dni', 'country' ,'cp' ,'city' ,'tel', 'email','email_token','password','active','verified','id_rol',
     ];
 
     /**
@@ -28,4 +28,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //un usuari pot tenir 1 o m lisitacions
+    public function lisitacio()
+    {
+        return $this->hasMany('App\Lisitacio');
+    }
 }

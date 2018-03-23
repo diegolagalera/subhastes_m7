@@ -35,4 +35,6 @@ Route::get('/hola', 'HomeController@index1')->name('hola');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/users', 'UserController');
+Route::resource('/permissions', 'PermissionController');
+Route::resource('/roles', 'RoleController');
