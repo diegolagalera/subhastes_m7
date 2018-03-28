@@ -1,5 +1,5 @@
 {{-- \resources\views\users\create.blade.php --}}
-@extends('layouts.layout')
+@extends('layouts.layoutf')
 
 @section('title', '| Add User')
 

@@ -73,6 +73,8 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ url('create') }}" class="btn btn-default pull-right">Roles</a></h1>
+
                     @endauth
                 </div>
             @endif

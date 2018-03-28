@@ -36,9 +36,13 @@ Route::get('/productes','productescontroller@index')->name('articles');
 
 Route::get('/productes/crear','productescontroller@create')->name('crearart');
 
+
+//rutes diego
 Route::get('/hola', 'HomeController@index1')->name('hola');
 
 Auth::routes();
+Route::get('/create', 'Auth\RegisterController@create')->name('create');
+Route::post('/create', 'Auth\RegisterController@store')->name('create');
 
 Route::resource('/users', 'UserController');
 Route::resource('/permissions', 'PermissionController');
