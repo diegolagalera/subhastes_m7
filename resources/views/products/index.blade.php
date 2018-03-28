@@ -16,6 +16,7 @@
           <tr>
             <td>{{$product->id}}</td>
             <td>{{$product->nom}}</td>
+            <td><img src="{{$product->imatge}}"></td>
           </tr>
         @endforeach
       </tbody>

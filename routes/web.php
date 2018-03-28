@@ -31,10 +31,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-Route::get('/productes','productescontroller@index')->name('articles');
-
-Route::get('/productes/crear','productescontroller@create')->name('crearart');
+Route::resources([
+  'productes' => 'productescontroller'
+]);
 
 Route::get('/hola', 'HomeController@index1')->name('hola');
 
