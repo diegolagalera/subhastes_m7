@@ -15,14 +15,12 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_categoria')->unsigned();
             $table->string('nom');
             $table->string('descripcio');
             $table->string('caracteristiques');
             $table->string('imatge');
             $table->boolean('actiu')->default(1);
             $table->timestamps();
-            $table->foreign('id_categoria')->references('id')->on('categories');
         });
     }
 

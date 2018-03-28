@@ -16,6 +16,8 @@
           <tr>
             <td>{{$product->id}}</td>
             <td>{{$product->nom}}</td>
+            <td><img src="{{$product->imatge}}"></td>
+            <td>@include('products.delete',['product'=>$product])</td>
           </tr>
         @endforeach
       </tbody>
