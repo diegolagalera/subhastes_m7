@@ -27,8 +27,9 @@ class productescontroller extends Controller
      */
     public function create()
     {
+        $product = new articles;
         $categories = Categoria::all();
-        return view("products.create",["categories"=>$categories]);
+        return view("products.create",["categories"=>$categories, "product"=>$product]);
     }
 
     /**
@@ -81,7 +82,10 @@ class productescontroller extends Controller
      */
     public function edit($id)
     {
-        //
+      $categories = Categoria::all();
+      $articles = articles::find($id);
+      return view("products.edit",["categories"=>$categories,"product"=>$articles]);
+
     }
 
     /**
@@ -93,7 +97,27 @@ class productescontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //IMATGE
+      $image = $request->file('imatge');
+      $path = time().'.'.$image->getClientOriginalExtension();
+      $destinationPath = public_path('images');
+      $image->move($destinationPath, $path);
+      $r=(string)$request->root().'/images/'.''.$path;
+      ///IMATGE
+
+      $product = articles::find($id);
+      $product->nom=$request->nom;
+      $product->descripcio=$request->descripcio;
+      $product->caracteristiques=$request->caracteristiques;
+      $product->imatge=$r;
+
+      if($product->save()){
+        $product->afegircate($product->id,$request->categoria);
+          return redirect("/productes");
+      }else{
+
+          return view("products.edit");
+      }
     }
 
     /**
