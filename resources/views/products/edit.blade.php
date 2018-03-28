@@ -2,8 +2,8 @@
 
 @section("content")
 <div class="container">
-  <h1>Nou producte</h1>
-    @include('products.form',['product'=>$product, 'url'=>'/productes', 'method' => 'POST'])
+  <h1>Editar producte</h1>
+    @include('products.form',['product'=>$product, 'url' => '/productes/'.$product->id, 'method'=> 'PATCH'])
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
