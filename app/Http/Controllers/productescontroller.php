@@ -104,6 +104,10 @@ class productescontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = articles::find($id);
+        $product->deletartcate($id);
+        articles::destroy($id);
+
+        return redirect('/productes');
     }
 }

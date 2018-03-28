@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class articles extends Model
 {
-    //
+    //Afegir categories al article
     public function afegircate($id,$cat){
       DB::table('categories_articles')->where('id_article','=',$id)->delete();
         for($i=0;$i<count($cat);$i++){
@@ -17,7 +17,11 @@ class articles extends Model
             'id_categoria'=>$cat[$i],
           ]);
         }
-      }
+    }
+
+    public function deletartcate($id){
+      DB::table('categories_articles')->where('id_article','=',$id)->delete();
+    }
 //un article sols pot estar a una categoria, relacio de 1 a m
     public function categoria()
     {
