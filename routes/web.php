@@ -23,7 +23,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home1');
 });
 
 
@@ -37,6 +37,8 @@ Route::resources([
 
 
 //rutes diego
+Route::get('register/verify/{code}', 'Auth\RegisterController@verify');
+
 Route::get('/hola', 'HomeController@index1')->name('hola');
 
 Auth::routes();

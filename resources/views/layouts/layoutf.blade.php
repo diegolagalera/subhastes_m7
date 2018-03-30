@@ -38,7 +38,9 @@
                 <ul class="navbar-nav ml-auto">
                   @guest
                       <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                      <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                      <li><a class="nav-link" href="{{ url('create') }}">{{ __('Register') }}</a></li>
+
+
                   @else
                   <li class="dropdown user user-menu">
 

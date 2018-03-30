@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 use Illuminate\Http\Request;
 use Auth;
-
+use Mail;
 
 //Importing laravel-permission models
 use Spatie\Permission\Models\Role;
@@ -95,34 +95,64 @@ class RegisterController extends Controller
     // }
 
     public function store(Request $request) {
-    //Validate name, email and password fields
+//Validate name, email and password fields
+    $codi=str_random(25);
     $this->validate($request, [
-       'name'=>'required|max:120',
-       'surname'=>'required|max:120',
-       'dni'=>'required|max:120',
-       'country'=>'required|max:120',
-       'cp'=>'required|max:120',
-       'city'=>'required|max:120',
-       'tel'=>'required|max:120',
-       'email'=>'required|email|unique:users',
-       'password'=>'required|min:6|confirmed'
+        'name'=>'required|max:120',
+        'surname'=>'required|max:120',
+        'dni'=>'required|max:120',
+        'country'=>'required|max:120',
+        'cp'=>'required|max:120',
+        'city'=>'required|max:120',
+        'tel'=>'required|max:120',
+        'email'=>'required|email|unique:users',
+        'password'=>'required|min:6|confirmed'
     ]);
-
-    $user = User::create($request->only('email', 'name', bcrypt('password'),'surname','dni','country','cp','city','tel')); //Retrieving only the email and password data
+    $request['email_token']=$codi;
+    $data['name']=$request->name;
+    $data['email']=$request->email;
+    $data['confirmation_code']=$request->email_token;
+    $user = User::create($request->only('email', 'name', 'password','surname','dni','country','cp','city','tel','email_token')); //Retrieving only the email and password data
 
     $roles = $request['roles']; //Retrieving the roles field
-    //Checking if a role was selected
+//Checking if a role was selected
     if (isset($roles)) {
 
-       foreach ($roles as $role) {
-       $role_r = Role::where('id', '=', $role)->firstOrFail();
-       $user->assignRole($role_r); //Assigning role to user
-       }
+        foreach ($roles as $role) {
+        $role_r = Role::where('id', '=', $role)->firstOrFail();
+        $user->assignRole($role_r); //Assigning role to user
+        }
     }
-    //Redirect to the users.index view and display message
+    //email
+    Mail::send('email.confirmation_code',['data'=>$data],function($mail) use ($data){
+
+                $mail->subject('complete verificacion');
+                $mail->to($data['email'],$data['name']);
+
+            });
+
+
+//Redirect to the users.index view and display message
     return redirect()->route('users.index')
-       ->with('flash_message',
-        'User successfully added.');
+        ->with('flash_message',
+         'User successfully added.');
+
+    }
+
+    public function verify($code)
+    {
+        $user = User::where('email_token',$code)->first();
+
+        if(!$user){
+          dd("hola");
+            return redirect('/');
+        }
+
+        $user->verified =true;
+        $user->email_token = 0;
+        $user->save();
+        return redirect('login');
+
     }
     /**
      * Create a new user instance after a valid registration.

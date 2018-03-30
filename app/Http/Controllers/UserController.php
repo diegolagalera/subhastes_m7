@@ -11,7 +11,7 @@ use Auth;
 //Importing laravel-permission models
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-
+use Mail;
 
 //Enables us to output flash messaging
 use Session;
@@ -58,6 +58,7 @@ class UserController extends Controller
 
     public function store(Request $request) {
 //Validate name, email and password fields
+    $codi=str_random(25);
     $this->validate($request, [
         'name'=>'required|max:120',
         'surname'=>'required|max:120',
@@ -69,8 +70,10 @@ class UserController extends Controller
         'email'=>'required|email|unique:users',
         'password'=>'required|min:6|confirmed'
     ]);
-
-    $user = User::create($request->only('email', 'name', 'password','surname','dni','country','cp','city','tel')); //Retrieving only the email and password data
+    $data['name']=$request->name;
+    $data['email']=$request->email;
+    $data['confirmation_code']=$request->email_token=$codi;
+    $user = User::create($request->only('email', 'name', 'password','surname','dni','country','cp','city','tel','email_token')); //Retrieving only the email and password data
 
     $roles = $request['roles']; //Retrieving the roles field
 //Checking if a role was selected
@@ -81,11 +84,39 @@ class UserController extends Controller
         $user->assignRole($role_r); //Assigning role to user
         }
     }
+    //email
+    Mail::send('email.confirmation_code',['data'=>$data],function($mail) use ($data){
+
+                $mail->subject('complete verificacion');
+                $mail->to($data['email'],$data['name']);
+
+            });
+
+
 //Redirect to the users.index view and display message
     return redirect()->route('users.index')
         ->with('flash_message',
          'User successfully added.');
-}
+
+    }
+
+    public function verify($code)
+    {
+      dd("hola");
+
+        $user = User::where('email_token',$code)->first();
+
+        if(!$user){
+            return redirect('/');
+        }
+
+        $user->verified =true;
+        $user->email_token = null;
+        $user->save();
+        return redirect('login');
+
+    }
+
 
     /**
      * Display the specified resource.
