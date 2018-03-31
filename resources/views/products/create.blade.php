@@ -1,6 +1,9 @@
-@extends("layouts.app");
+{{-- \resources\views\users\index.blade.php --}}
+@extends('layouts.layout')
 
-@section("content")
+@section('title', '| Users')
+
+@section('content')
 <div class="container">
   <h1>Nou producte</h1>
     @include('products.form',['product'=>$product, 'url'=>'/productes', 'method' => 'POST'])

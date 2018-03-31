@@ -1,6 +1,6 @@
 {{ Form::open(['url' => $url, 'method' => $method, 'files' => TRUE]) }}
 @csrf
-<div class="">
+<div class="" style="text-align: center;">
 
     <div class="form-group">
     {{Form::text('nom',$product->nom,['class' =>'form-controller', 'placeholder'=>'Titulo...'])}}</div>
@@ -9,7 +9,7 @@
     <div class="form-group">
     {{Form::textarea('caracteristiques',$product->caracteristiques,['class' =>'form-controller', 'placeholder'=>'Caracteristiques...'])}}</div>
 
-    <div class="form-group">
+    <div class="form-group" >
       <input id="myInput" type="text" placeholder="Search..">
       <table>
         <thead>

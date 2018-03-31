@@ -1,11 +1,16 @@
-@extends("layouts.app");
+{{-- \resources\views\users\index.blade.php --}}
+@extends('layouts.layout')
 
-@section("content")
-  <div class="big-padding text-center blue-grey white-text">
-    <h1>Productes</h1>
-  </div>
-  <div class="container">
-    <table>
+@section('title', '| Users')
+
+@section('content')
+
+<div class="col-lg-10 col-lg-offset-1">
+    <h1><i class="fa fa-users"></i><h1>Productes</h1>
+
+  <hr>
+  <div class="table-responsive">
+      <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <td></td>
@@ -16,11 +21,16 @@
           <tr>
             <td>{{$product->id}}</td>
             <td>{{$product->nom}}</td>
-            <td><img src="{{$product->imatge}}"></td>
-            <td>@include('products.delete',['product'=>$product])</td>
+            <td><img class="imgproduct" width="350px" height="200px" src="{{$product->imatge}}"></td>
+            <td>@include('products.delete',['product'=>$product])
+              <a href="{{ url('productes/'.$product->id.'/edit') }}" class="btn btn-success">Editar</a>
+            </td>
           </tr>
         @endforeach
       </tbody>
     </table>
+    <a href="{{ url('productes/create') }}" class="btn btn-success">Afegir producte</a>
+
   </div>
+</div>
 @endsection
