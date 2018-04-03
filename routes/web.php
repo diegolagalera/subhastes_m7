@@ -48,3 +48,4 @@ Route::post('/create', 'Auth\RegisterController@store')->name('create');
 Route::resource('/users', 'UserController');
 Route::resource('/permissions', 'PermissionController');
 Route::resource('/roles', 'RoleController');
+Route::resource('/subhastes', 'SubhastaController');

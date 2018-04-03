@@ -15,7 +15,13 @@ class CreateSubhastesTable extends Migration
     {
         Schema::create('subhastes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_article')->unsigned();
+            $table->integer('preu_venta');
+            $table->boolean('actiu')->default(1);
+            $table->dateTime('data');
             $table->timestamps();
+            $table->foreign('id_article')->references('id')->on('articles');
+
         });
     }
 
