@@ -11,7 +11,7 @@ class articlesTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    { 
       articles::create([
         'nom'=>'Taula',
         'descripcio'=>'desc2',
