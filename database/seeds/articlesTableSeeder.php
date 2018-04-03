@@ -18,7 +18,12 @@ class articlesTableSeeder extends Seeder
         'caracteristiques'=>'car2',
         'imatge'=>'',
       ]);
-      
+      articles::create([
+        'nom'=>'Cadira',
+        'descripcio'=>'desc1',
+        'caracteristiques'=>'car1',
+        'imatge'=>'',
+      ]);
 
 
     }
