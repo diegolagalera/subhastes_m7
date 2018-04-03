@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
 use App\articles;
 class articlesTableSeeder extends Seeder
 {
@@ -13,10 +12,12 @@ class articlesTableSeeder extends Seeder
     public function run()
     {
       articles::create([
-        'nom'=>'Taula',
-        'descripcio'=>'desc2',
-        'caracteristiques'=>'car2',
-        'imatge'=>'',
+        'nom'=> 'Taula',
+        'descripcio'=> 'Taula',
+        'caracteristiques'=> 'Taula',
+        'imatge'=> '',
+
       ]);
+
     }
 }
