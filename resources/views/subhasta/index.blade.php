@@ -21,19 +21,18 @@
                     <th>Data</th>
                 </tr>
             </thead>
-
+            {{dd($su)}}
             <tbody>
                 @foreach ($su as $subhasta)
                 <tr>
 
                     <td>{{ $subhasta->id }}</td>
-                    <td>{{ $subhasta->id_article }}</td>
-                    <td>{{ $subhasta->actiu()}}</td>
-                    <td>{{ $subhasta->data->format('F d, Y h:ia') }}</td>
+                    <td>{{ $subhasta->articles->nom }}</td>
+                    <td>{{ $subhasta->actiu}}</td>
                     <td>
-                    <a href="{{ url('users/edit', $user->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+                    <a href="{{ url('subhastes/editar', $subhasta->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
 
-                    {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id] ]) !!}
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['subhastes.destroy', $subhasta->id] ]) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
 

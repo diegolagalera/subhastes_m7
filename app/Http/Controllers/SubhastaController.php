@@ -40,9 +40,9 @@ class SubhastaController extends Controller
      */
     public function store(Request $request)
     {
-      $article = new articles($request->all());
-      $article->save();
-
+      $subhasta = new Subhasta($request->all());
+      $subhasta->save();
+      return redirect('subhasta');
     }
 
     /**
@@ -64,7 +64,9 @@ class SubhastaController extends Controller
      */
     public function edit($id)
     {
-
+      $subhasta=Subhasta::find($id);
+      $article = articles::orderBy('id','ASC')->pluck('nom','id')->toArray();
+      return view('subhasta.editar')->with('subhasta',$subhasta)->with("articles",$article);
 
     }
 
