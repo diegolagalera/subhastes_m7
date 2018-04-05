@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class articles extends Model
 {
+  protected $fillable = [
+      'id','nom', 'descripcio', 'caracteristiques' ,'imatge' ,'actiu' ,
+  ];
+
+
     //Afegir categories al article
     public function afegircate($id,$cat){
       DB::table('categories_articles')->where('id_article','=',$id)->delete();
