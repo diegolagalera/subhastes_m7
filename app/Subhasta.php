@@ -17,8 +17,9 @@ class Subhasta extends Model
     {
         return $this->hasMany('App\Lisitacio');
     }
-    public function article()
+    public function id_article()
     {
-        return $this->belongsTo('App\Article');
+        $article=$this->belongsTo('App\articles','id_article')->get();
+        return $article[0];
     }
 }

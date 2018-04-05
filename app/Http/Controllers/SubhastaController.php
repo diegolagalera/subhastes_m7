@@ -16,6 +16,9 @@ class SubhastaController extends Controller
     public function index()
     {
       $su = Subhasta::all();
+      foreach ($su as $c) {
+        $c->id_article = $c->id_article()->nom;
+      }
       return view('subhasta.index')->with('su', $su);
 
     }
