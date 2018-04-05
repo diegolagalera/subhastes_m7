@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\articles;
 use App\Subhasta;
+
 class SubhastaController extends Controller
 {
     /**
@@ -25,8 +27,9 @@ class SubhastaController extends Controller
      */
     public function create()
     {
-
-
+      $article = articles::orderBy('id','ASC')->pluck('nom','id')->toArray();
+      //dd($article);
+      return view('subhasta.create')->with("articles",$article);
     }
 
     /**
@@ -37,7 +40,8 @@ class SubhastaController extends Controller
      */
     public function store(Request $request)
     {
-
+      $article = new articles($request->all());
+      $article->save();
 
     }
 
