@@ -30,6 +30,7 @@ class productescontroller extends Controller
         $product = new articles;
         $categories = Categoria::all();
         return view("products.create",["categories"=>$categories, "product"=>$product]);
+
     }
 
     /**
