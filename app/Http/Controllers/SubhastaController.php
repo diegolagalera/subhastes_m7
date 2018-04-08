@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\articles;
 use App\Subhasta;
 use App\Lisitacio;
-use App\articles;
 use DB;
 class SubhastaController extends Controller
 {
@@ -17,6 +17,9 @@ class SubhastaController extends Controller
     public function index()
     {
       $su = Subhasta::all();
+      foreach ($su as $c) {
+        $c->id_article = $c->id_article()->nom;
+      }
       return view('subhasta.index')->with('su', $su);
 
     }
@@ -28,8 +31,9 @@ class SubhastaController extends Controller
      */
     public function create()
     {
-
-
+      $article = articles::orderBy('id','ASC')->pluck('nom','id')->toArray();
+      //dd($article);
+      return view('subhasta.create')->with("articles",$article);
     }
 
     /**
@@ -40,8 +44,9 @@ class SubhastaController extends Controller
      */
     public function store(Request $request)
     {
-
-
+      $subhasta = new Subhasta($request->all());
+      $subhasta->save();
+      return redirect('subhastes');
     }
 
     /**
@@ -68,7 +73,9 @@ class SubhastaController extends Controller
      */
     public function edit($id)
     {
-
+      $subhasta=Subhasta::find($id);
+      $article = articles::orderBy('id','ASC')->pluck('nom','id')->toArray();
+      return view('subhasta.editar')->with('subhasta',$subhasta)->with("articles",$article);
 
     }
 
@@ -81,7 +88,10 @@ class SubhastaController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+      $subhasta=Subhasta::find($id);
+      $subhasta->fill($request->all());
+      $subhasta->save();
+      return redirect('subhastes');
 
     }
 
@@ -93,7 +103,9 @@ class SubhastaController extends Controller
      */
     public function destroy($id)
     {
-
+      $subhasta=Subhasta::find($id);
+      $subhasta->delete();
+      return redirect('subhastes');
 
     }
 }

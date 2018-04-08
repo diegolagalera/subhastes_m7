@@ -21,19 +21,21 @@
                     <th>Data</th>
                 </tr>
             </thead>
-
             <tbody>
                 @foreach ($su as $subhasta)
                 <tr>
 
                     <td>{{ $subhasta->id }}</td>
                     <td>{{ $subhasta->id_article }}</td>
-                    <td>{{ $subhasta->actiu()}}</td>
-                    <td>{{ $subhasta->data->format('F d, Y h:ia') }}</td>
-                    <td>
-                    <a href="{{ url('users/edit', $user->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+                    <td>{{ $subhasta->preu_venta.'$' }}</td>
 
-                    {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id] ]) !!}
+                    <td>{{ $subhasta->actiu}}</td>
+                    <td>{{ $subhasta->data}}</td>
+
+                    <td>
+                    <a href="{{ url('subhastes/'.$subhasta->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['subhastes.destroy', $subhasta->id] ]) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
 
@@ -45,8 +47,9 @@
         </table>
     </div>
 
-    <!-- <a href="{{ url('users/create') }}" class="btn btn-success">Add User</a> -->
+    <a href="{{ url('subhastes/create') }}" class="btn btn-success">Crear Subhastes</a>
 
 </div>
+
 
 @endsection
