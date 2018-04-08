@@ -21,6 +21,8 @@
           <tr>
             <td>{{$product->id}}</td>
             <td>{{$product->nom}}</td>
+            <td>{{$product->descripcio}}</td>
+            <td>{{$product->caracteristiques}}</td>
             <td><img class="imgproduct" width="350px" height="200px" src="{{$product->imatge}}"></td>
             <td>@include('products.delete',['product'=>$product])
               <a href="{{ url('productes/'.$product->id.'/edit') }}" class="btn btn-success">Editar</a>
