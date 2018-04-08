@@ -28,7 +28,7 @@
 
     <div class="form-group">
         {{ Form::label('data', 'Data') }}
-        {{ Form::date('data', '', array('class' => 'form-control')) }}
+        {!! Form::date('data', '',['class'=> 'form-control','required']) !!}
     </div>
 
     </div>

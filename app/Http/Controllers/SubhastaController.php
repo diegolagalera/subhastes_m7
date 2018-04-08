@@ -45,7 +45,7 @@ class SubhastaController extends Controller
     {
       $subhasta = new Subhasta($request->all());
       $subhasta->save();
-      return redirect('subhasta');
+      return redirect('subhastes');
     }
 
     /**
@@ -82,7 +82,10 @@ class SubhastaController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+      $subhasta=Subhasta::find($id);
+      $subhasta->fill($request->all());
+      $subhasta->save();
+      return redirect('subhastes');
 
     }
 
@@ -94,7 +97,9 @@ class SubhastaController extends Controller
      */
     public function destroy($id)
     {
-
+      $subhasta=Subhasta::find($id);
+      $subhasta->delete();
+      return redirect('subhastes');
 
     }
 }
