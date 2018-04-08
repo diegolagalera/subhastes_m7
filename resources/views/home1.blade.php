@@ -5,7 +5,7 @@
 @section('content')
 
 <h1>Preparando la descarga</h1>
-<!-- <h2 id='CuentaAtras'></h2> -->
+<h2 id='CuentaAtras'></h2>
 
 <script language="JavaScript">
 
@@ -18,15 +18,15 @@
     {
         document.getElementById('CuentaAtras').innerHTML = "Por favor, espera "+totalTiempo+" segundos";
 
-        if(totalTiempo==0)
-        {
-            window.location=url;
-        }else{
-            /* Restamos un segundo al tiempo restante */
-            totalTiempo-=1;
-            /* Ejecutamos nuevamente la función al pasar 1000 milisegundos (1 segundo) */
-            setTimeout("updateReloj()",1000);
-        }
+        // if(totalTiempo==0)
+        // {
+        //     window.location=url;
+        // }else{
+        //     /* Restamos un segundo al tiempo restante */
+        //     totalTiempo-=1;
+        //     /* Ejecutamos nuevamente la función al pasar 1000 milisegundos (1 segundo) */
+        //     setTimeout("updateReloj()",1000);
+        // }
     }
 
     window.onload=updateReloj;
