@@ -61,7 +61,7 @@ class SubhastaController extends Controller
 
       $su = Subhasta::find($id);
       $articles = articles::find($su->id_article);
-      //dd($lic);
+      
       return view("subhasta.show",["su"=>$su,"licitacions"=>$lic,"articles"=>$articles]);
     }
 

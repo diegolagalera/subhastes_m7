@@ -43,6 +43,7 @@ class licitaciocontroller extends Controller
         $lic->id_usuari=Auth::user()->id;
         $lic->id_subhasta=$request->subhasta;
         $lic->temps= date('Y-m-j H:i:s');
+        $lic->guanyador=0;
 
         if($lic->save()){
             return redirect($request->url);
