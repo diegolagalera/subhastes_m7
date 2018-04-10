@@ -49,3 +49,4 @@ Route::resource('/users', 'UserController');
 Route::resource('/permissions', 'PermissionController');
 Route::resource('/roles', 'RoleController');
 Route::resource('/subhastes', 'SubhastaController');
+Route::resource('/licitacio', 'licitaciocontroller');

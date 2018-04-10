@@ -9,16 +9,18 @@
   <div class="col-md-4">{{$articles->descripcio}}</div>
   <div class="col-md-4">
     <div class="row text-right">
-      <div class="col-md-8 font-weight-bold">Licitacions {{$licitacions}}</div>
+      <div class="col-md-8">Licitacions: <strong>{{$licitacions}}</strong></div>
     </div>
     <div class="row">
-      <div class="col-md-0"><input type="number"></input></div>
-      <div class="col-md-2"><button>pujar</button></div>
+      @include('licitacio.form',[ 'url'=>'/licitacio','id'=>$su->id,'method' => 'POST'])
     </div>
   </div>
 </div>
 <hr>
 <div class="row">
-    <div class="col-md-6 text-justify">{{$articles->caracteristiques}}</div>
+    <div class="col-md-5  text-justify">{{$articles->caracteristiques}}</div>
+    <div class="col-md-7 text-right mt-auto p-2">
+      <a href="{{url('/subhastes')}}">Tornar</a>
+    </div>
 </div>
 @endsection
