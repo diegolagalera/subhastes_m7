@@ -39,7 +39,7 @@ class licitaciocontroller extends Controller
     public function store(Request $request)
     {
         $lic = new Lisitacio();
-        $lic->preu=$request->preu;
+        $lic->preu=$request->preu+0.5;
         $lic->id_usuari=Auth::user()->id;
         $lic->id_subhasta=$request->subhasta;
         $lic->temps= date('Y-m-j H:i:s');

@@ -17,7 +17,7 @@ class CreateLicitacionsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('id_usuari')->unsigned();
             $table->integer('id_subhasta')->unsigned();
-            $table->integer('preu')->unsigned();
+            $table->decimal('preu',28,10)->unsigned();
             $table->date('temps');
             $table->timestamps();
             $table->foreign('id_usuari')->references('id')->on('users');
