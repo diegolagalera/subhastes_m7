@@ -50,3 +50,4 @@ Route::resource('/permissions', 'PermissionController');
 Route::resource('/roles', 'RoleController');
 Route::resource('/subhastes', 'SubhastaController');
 Route::resource('/licitacio', 'licitaciocontroller');
+Route::resource('/feed', 'FeedController');

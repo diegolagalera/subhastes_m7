@@ -73,6 +73,11 @@
                               </form>
                       </li>
                   @endguest
+                  <li class="nav-item">
+                      <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
+                          <i class="fa fa-money"></i> 
+                      </a>
+                  </li>
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="material-icons">apps</i> Components
