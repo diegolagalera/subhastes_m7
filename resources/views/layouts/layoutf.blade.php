@@ -42,13 +42,13 @@
 
 
                   @else
-                  <li class="dropdown user user-menu">
+                  <li class="dropdown user user-menu"  >
 
 
 
+                          <a data-toggle="dropdown" style="color:white" id="navbarDropdown" class="nav-link dropdown-toggle" href="javascript:void(0)"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
-                          <a style="color:white" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <span class="pull-right-container">
+                         <span class="pull-right-container">
                               <i class="fa fa-users"> </i>
                             </span>
 
@@ -72,12 +72,13 @@
                                   @csrf
                               </form>
                       </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/recargar/{{Auth::user()->id}}" onclick="scrollToDownload()">
+                              <i class="fa fa-money" ></i><?php $q=Auth::user()->saldo; echo number_format($q,2, ",", ".");?>
+                        </a>
+                      </li>
                   @endguest
-                  <li class="nav-item">
-                      <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
-                          <i class="fa fa-money"></i> 
-                      </a>
-                  </li>
+
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="material-icons">apps</i> Components
