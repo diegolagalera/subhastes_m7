@@ -38,16 +38,14 @@ Route::resources([
 
 //rutes diego
 Route::get('register/verify/{code}', 'Auth\RegisterController@verify');
-
 Route::get('/hola', 'HomeController@index1')->name('hola');
-
 Auth::routes();
 Route::get('/create', 'Auth\RegisterController@create')->name('create');
 Route::post('/create', 'Auth\RegisterController@store')->name('create');
-
 Route::resource('/users', 'UserController');
 Route::resource('/permissions', 'PermissionController');
 Route::resource('/roles', 'RoleController');
 Route::resource('/subhastes', 'SubhastaController');
 Route::resource('/licitacio', 'licitaciocontroller');
+Route::resource('/categories', 'CategoriaController');
 Route::resource('/feed', 'FeedController');
