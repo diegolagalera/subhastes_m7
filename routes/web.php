@@ -49,3 +49,5 @@ Route::resource('/subhastes', 'SubhastaController');
 Route::resource('/licitacio', 'licitaciocontroller');
 Route::resource('/categories', 'CategoriaController');
 Route::resource('/feed', 'FeedController');
+Route::get('/recargar/{id}', 'CarteraController@edit')->name('cartera');
+Route::post('/recargar/{id}','CarteraController@update');
