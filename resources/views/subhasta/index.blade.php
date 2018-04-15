@@ -88,8 +88,10 @@ toHour=23;
 toMinute=59;
 toSecond=59;
 
-function countDown(co)
+function countDown()
 {
+  var co=<?php echo $a; ?>;
+
   var i;
 
   for (i = 1; i <= co; i++) {

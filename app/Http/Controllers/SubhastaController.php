@@ -58,10 +58,10 @@ class SubhastaController extends Controller
     public function show($id)
     {
       $lic = DB::table('licitacions')->where('id_subhasta', $id)->count();
-
+    
       $su = Subhasta::find($id);
       $articles = articles::find($su->id_article);
-      
+
       return view("subhasta.show",["su"=>$su,"licitacions"=>$lic,"articles"=>$articles]);
     }
 

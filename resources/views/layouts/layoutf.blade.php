@@ -19,11 +19,14 @@
     <!-- Documentation extras -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('assets/assets-for-demo/demo.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'>
     <!-- iframe removal -->
+
+
 </head>
 
-<body onload="countDown(<?php echo $a; ?>)";class="index-page ">
+<body class="index-page ">
     <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
         <div class="container">
             <div class="navbar-translate">
@@ -181,6 +184,7 @@
                 <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
             </div>
         </div>
+
     </footer>
     <!--   Core JS Files   -->
     <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
@@ -213,6 +217,17 @@
             materialKit.initSliders();
         });
     </script>
+    <script>
+
+    $(document).ready(function(){
+      getTime();
+
+    });
+
+    </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  	<script src="count.js"></script>
 </body>
 
 </html>
