@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lisitacio extends Model
 {
     //
-
+      protected $table='licitacions';
 
 //Una lisitació pertany a un usuari
     public function user()

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
@@ -9,7 +10,6 @@ class Categoria extends Model
     //
 
     protected $table='categories';
-
     protected $fillable = [
         'id','nom', 'descripcio',
     ];
@@ -18,5 +18,9 @@ class Categoria extends Model
     public function article()
     {
         return $this->hasMany('App\Article');
+    }
+
+    public function deletcateart($id){
+      DB::table('categories_articles')->where('id_categoria','=',$id)->delete();
     }
 }

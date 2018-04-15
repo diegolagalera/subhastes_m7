@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('email_token')->default(0);
             $table->string('password');
+            $table->decimal('saldo',28,10)->default(0,50);
             $table->rememberToken();
             $table->timestamps();
             $table->boolean('active')->default(1);

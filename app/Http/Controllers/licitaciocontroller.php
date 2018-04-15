@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\articles;
-use App\Subhasta;
+
 use App\Lisitacio;
-use DB;
-class SubhastaController extends Controller
+use App\User;
+use Illuminate\Support\Facades\Auth;
+
+class licitaciocontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +17,7 @@ class SubhastaController extends Controller
      */
     public function index()
     {
-      $su = Subhasta::all();
-      foreach ($su as $c) {
-        $c->id_article = $c->id_article()->nom;
-      }
-      return view('subhasta.index')->with('su', $su);
-
+        //
     }
 
     /**
@@ -31,9 +27,7 @@ class SubhastaController extends Controller
      */
     public function create()
     {
-      $article = articles::orderBy('id','ASC')->pluck('nom','id')->toArray();
-      //dd($article);
-      return view('subhasta.create')->with("articles",$article);
+
     }
 
     /**
@@ -44,9 +38,21 @@ class SubhastaController extends Controller
      */
     public function store(Request $request)
     {
-      $subhasta = new Subhasta($request->all());
-      $subhasta->save();
-      return redirect('subhastes');
+
+
+        $lic = new Lisitacio();
+        $lic->preu=$request->preu;
+        $lic->id_usuari=Auth::user()->id;
+        $lic->id_subhasta=$request->subhasta;
+        $lic->temps= date('Y-m-j H:i:s');
+        $lic->guanyador=0;
+
+        if($lic->save()){
+          $user =  User::find(Auth::user()->id);
+          $user->saldo= $user->saldo-0.5;
+          $user->save();
+            return redirect($request->url);
+        }
     }
 
     /**
@@ -57,12 +63,7 @@ class SubhastaController extends Controller
      */
     public function show($id)
     {
-      $lic = DB::table('licitacions')->where('id_subhasta', $id)->count();
-
-      $su = Subhasta::find($id);
-      $articles = articles::find($su->id_article);
-      
-      return view("subhasta.show",["su"=>$su,"licitacions"=>$lic,"articles"=>$articles]);
+        //
     }
 
     /**
@@ -73,10 +74,7 @@ class SubhastaController extends Controller
      */
     public function edit($id)
     {
-      $subhasta=Subhasta::find($id);
-      $article = articles::orderBy('id','ASC')->pluck('nom','id')->toArray();
-      return view('subhasta.editar')->with('subhasta',$subhasta)->with("articles",$article);
-
+        //
     }
 
     /**
@@ -88,11 +86,7 @@ class SubhastaController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $subhasta=Subhasta::find($id);
-      $subhasta->fill($request->all());
-      $subhasta->save();
-      return redirect('subhastes');
-
+        //
     }
 
     /**
@@ -103,9 +97,6 @@ class SubhastaController extends Controller
      */
     public function destroy($id)
     {
-      $subhasta=Subhasta::find($id);
-      $subhasta->delete();
-      return redirect('subhastes');
-
+        //
     }
 }
