@@ -22,9 +22,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home1');
-});
+// Route::get('/', function () {
+//     return view('home1');
+// });
+Route::get('/', 'HomeController@index');
 
 
 Auth::routes();

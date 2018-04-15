@@ -22,7 +22,16 @@
                 </tr>
             </thead>
             <tbody>
+              <?php
+               $a=0;
+              ?>
                 @foreach ($su as $subhasta)
+                <?php
+                 $a = $a+1;
+                 echo $a;
+                ?>
+
+
                 <tr>
 
                     <td>{{ $subhasta->id }}</td>
@@ -30,7 +39,7 @@
                     <td>{{ $subhasta->preu_venta.'$' }}</td>
 
                     <td>{{ $subhasta->actiu}}</td>
-                    <td id="as">{{ $subhasta->data}}</td>
+                    <td id=<?php echo "a".$a; ?>>{{ $subhasta->data}}</td>
 
                     <td>
                     <a href="{{ url('subhastes/'.$subhasta->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
@@ -70,10 +79,7 @@ Tiempo que falta hasta el fin del año 2010.<br><br>
 //Codigo que muestra la cuenta atras hasta el final del año 2010
 //La Web del Programador
 //http://www.lawebdelprogramador.com
-function aa(){
-  document.getElementById("a").innerHTML="adeu";
 
-}
 //variables que determinan la fecha y hora final de la cuenta atras
 toYear=2018;
 toMonth=12;
@@ -82,9 +88,13 @@ toHour=23;
 toMinute=59;
 toSecond=59;
 
-function countDown()
+function countDown(co)
 {
-  document.getElementById("as").innerHTML="adeu";
+  var i;
+
+  for (i = 1; i <= co; i++) {
+    document.getElementById("a"+i).innerHTML=i;
+  }
 
     new_year=0;
     new_month=0;
