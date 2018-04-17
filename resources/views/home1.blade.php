@@ -21,21 +21,10 @@
         </br>
 
         <div class="panel-footer" style="text-align: justify">
-          <?php
-           $a=0;
-          ?>
           @foreach($su as $s)
-          <?php
-           $a = $a+1;
-           echo $a;
-          ?>
           @if($s->id_article==$e->id)
-
             <h3 style="text-align:center">{{$s->data}}</h3>
-            <h2 id=<?php echo "a".$a; ?>></h2>
             <a href="{{ url('subhastes/'.$s->id.'') }}" class="btn btn-success">Crear Subhastes</a>
-
-            <p>Dias<h4 name="day"></h4>Mes<h4 name="hour"></h4>Hora<h4></h4> Minutos<h4></h4>   </p>
 
           @endif
           @endforeach
@@ -52,15 +41,7 @@
   @endforeach
   @endforeach
 
-  <form name="form">
-  Tiempo que falta hasta el fin del año 2010.<br><br>
-  <input type="text" size="5" class="form_input" name="year" disabled> años<br>
-  <input type="text" size="5" class="form_input" name="month" disabled> meses<br>
-  <input type="text" size="5" class="form_input" name="day" disabled> dias<br>
-  <input type="text" size="5" class="form_input" name="hour" disabled> horas<br>
-  <input type="text" size="5" class="form_input" name="minute" disabled> minutos<br>
-  <input type="text" size="5" class="form_input" name="second" disabled> segundos<br>
-  </form>
+
 
   </div>
 

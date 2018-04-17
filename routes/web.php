@@ -25,12 +25,9 @@
 // Route::get('/', function () {
 //     return view('home1');
 // });
-Route::get('/', 'HomeController@index');
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resources([
   'productes' => 'productescontroller'
@@ -52,3 +49,4 @@ Route::resource('/categories', 'CategoriaController');
 Route::resource('/feed', 'FeedController');
 Route::get('/recargar/{id}', 'CarteraController@edit')->name('cartera');
 Route::post('/recargar/{id}','CarteraController@update');
+Route::get('/', 'HomeController@index')->name('home');
