@@ -125,7 +125,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function show($id) {
-         return redirect('users');
+         $user = User::find($id);
+         return view("users.show",["user"=>$user]);
      }
 
     /**

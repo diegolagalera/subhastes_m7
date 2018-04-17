@@ -19,12 +19,14 @@
     <!-- Documentation extras -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('assets/assets-for-demo/demo.css') }}" rel="stylesheet">
-
+    <!-- <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'> -->
     <!-- iframe removal -->
+
+
 </head>
 
 <body class="index-page ">
-    <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+  <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
         <div class="container">
             <div class="navbar-translate">
                 <strong><a class="navbar-brand" href=""><h2>SubhastaKing</h2></a></strong>
@@ -37,18 +39,18 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                   @guest
-                      <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                      <li><a class="nav-link" href="{{ url('create') }}">{{ __('Register') }}</a></li>
+                      <li><a href="{{ route('login') }}" style="color:white">{{ __('Login') }}</a></li>
+                      <li><a href="{{ url('create') }}" style="color:white;margin-left:15px">{{ __('Register') }}</a></li>
 
 
                   @else
-                  <li class="dropdown user user-menu">
+                  <li class="dropdown user user-menu"  >
 
 
 
+                          <a data-toggle="dropdown" style="color:white" id="navbarDropdown" class="nav-link dropdown-toggle" href="javascript:void(0)"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
-                          <a style="color:white" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <span class="pull-right-container">
+                         <span class="pull-right-container">
                               <i class="fa fa-users"> </i>
                             </span>
 
@@ -72,42 +74,31 @@
                                   @csrf
                               </form>
                       </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/recargar/{{Auth::user()->id}}" onclick="scrollToDownload()">
+                              <i class="fa fa-money" ></i><?php $q=Auth::user()->saldo; echo number_format($q,2, ",", ".");?>
+                        </a>
+                      </li>
                   @endguest
-                  <li class="nav-item">
-                      <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
-                          <i class="fa fa-money"></i> 
-                      </a>
-                  </li>
-                    <li class="dropdown nav-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="material-icons">apps</i> Components
-                        </a>
-                        <div class="dropdown-menu dropdown-with-icons">
-                            <a href="./index.html" class="dropdown-item">
-                                <i class="material-icons">layers</i> All Components
-                            </a>
-                            <a href="http://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html" class="dropdown-item">
-                                <i class="material-icons">content_paste</i> Documentation
-                            </a>
-                        </div>
-                    </li>
+
+
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
-                            <i class="material-icons">cloud_download</i> Download
+                        <a class="nav-link" href="{{ route('home') }}">
+                            <i class="material-icons">home</i> Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/?lang=es" target="_blank" data-original-title="Follow us on Twitter">
                             <i class="fa fa-twitter"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/" target="_blank" data-original-title="Like us on Facebook">
                             <i class="fa fa-facebook-square"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/?hl=es" target="_blank" data-original-title="Follow us on Instagram">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
@@ -120,8 +111,7 @@
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto">
                     <div class="brand">
-                        <h1>Material Kit.</h1>
-                        <h3>A Badass Bootstrap 4 UI Kit based on Material Design.</h3>
+                        <h1>El rey de la SuBhAsTa</h1>
                     </div>
                 </div>
             </div>
@@ -180,6 +170,7 @@
                 <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
             </div>
         </div>
+
     </footer>
     <!--   Core JS Files   -->
     <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
@@ -212,6 +203,17 @@
             materialKit.initSliders();
         });
     </script>
+    <script>
+
+    $(document).ready(function(){
+      getTime();
+
+    });
+
+    </script>
+    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+
+  	<script src="count.js"></script>
 </body>
 
 </html>

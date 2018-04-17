@@ -83,11 +83,9 @@ class CarteraController extends Controller
     {
        $user =  User::find($id);
 
-      $user->saldo=$request->saldo;
+      $user->saldo=  $user->saldo+$request->saldo;
       if($user->save()){
-        return redirect()->route('users.index')
-            ->with('flash_message',
-             'User successfully edited.');
+        return view('users.show',["user"=>$user]);
       }
 
     }

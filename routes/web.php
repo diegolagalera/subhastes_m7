@@ -22,14 +22,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home1');
-});
+// Route::get('/', function () {
+//     return view('home1');
+// });
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resources([
   'productes' => 'productescontroller'
@@ -51,4 +49,8 @@ Route::resource('/categories', 'CategoriaController');
 Route::resource('/feed', 'FeedController');
 Route::get('/recargar/{id}', 'CarteraController@edit')->name('cartera');
 Route::post('/recargar/{id}','CarteraController@update');
+<<<<<<< HEAD
 Route::get('/pdf/{id}', 'PdfController@index');
+=======
+Route::get('/', 'HomeController@index')->name('home');
+>>>>>>> 4b44d5cd4a918418809c8cc5be8c0164b4749793

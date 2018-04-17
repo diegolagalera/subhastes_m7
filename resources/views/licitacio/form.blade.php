@@ -1,6 +1,6 @@
 {{ Form::open(['url' => $url,'id'=>$id, 'method' => $method]) }}
 <div >
-  {{Form::number('preu','',['class' =>'form-control', 'step'=>'any','placeholder'=>'Preu...'])}}
+  {{Form::number('preu','',['class' =>'form-control', 'step'=>'any','placeholder'=>'Preu...', 'required'])}}
   {{Form::label('+50','+ (0,50€)')}}
 
 <input type="hidden" name="url" value='subhastes/{{$id}}'>

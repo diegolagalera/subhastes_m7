@@ -9,6 +9,10 @@ use App\Lisitacio;
 use DB;
 class SubhastaController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -61,7 +65,7 @@ class SubhastaController extends Controller
 
       $su = Subhasta::find($id);
       $articles = articles::find($su->id_article);
-      
+
       return view("subhasta.show",["su"=>$su,"licitacions"=>$lic,"articles"=>$articles]);
     }
 

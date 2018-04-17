@@ -28,7 +28,8 @@
 
     <div class="form-group">
         {{ Form::label('data', 'Data') }}
-        {!! Form::date('data', '',['class'=> 'form-control','required']) !!}
+        <input id="data" name="data" type="datetime-local" class="form-control" required>
+        <!-- {!! Form::dateTime('data', '',['class'=> 'form-control','required']) !!} -->
     </div>
 
     </div>
