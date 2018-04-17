@@ -8,7 +8,7 @@
 <div class="col-lg-10 col-lg-offset-1">
     <h1><i class="fa fa-key"></i> Roles
 
-    <a href="{{ url('users/index') }}" class="btn btn-default pull-right">Users</a>
+    <a href="{{ url('users') }}" class="btn btn-default pull-right">Users</a>
     <a href="{{ url('permissions/index') }}" class="btn btn-default pull-right">Permissions</a></h1>
     <hr>
     <div class="table-responsive">
