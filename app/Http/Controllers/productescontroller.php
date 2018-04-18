@@ -108,16 +108,16 @@ class productescontroller extends Controller
       $product->nom=$request->nom;
       $product->descripcio=$request->descripcio;
       $product->caracteristiques=$request->caracteristiques;
+      //IMATGE
       if($request->file('imatge')!=null){
-        //IMATGE
         $image = $request->file('imatge');
         $path = time().'.'.$image->getClientOriginalExtension();
         $destinationPath = public_path('images');
         $image->move($destinationPath, $path);
         $r=(string)$request->root().'/images/'.''.$path;
         $product->imatge=$r;
-        ///IMATGE
       }
+      ///IMATGE
 
       if($product->save()){
         $product->afegircate($product->id,$request->categoria);

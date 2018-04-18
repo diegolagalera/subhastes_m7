@@ -38,8 +38,6 @@ class licitaciocontroller extends Controller
      */
     public function store(Request $request)
     {
-
-
         $lic = new Lisitacio();
         $lic->preu=$request->preu;
         $lic->id_usuari=Auth::user()->id;
@@ -49,8 +47,10 @@ class licitaciocontroller extends Controller
 
         if($lic->save()){
           $user =  User::find(Auth::user()->id);
-          $user->saldo= $user->saldo-0.5;
-          $user->save();
+          if($user->saldo>0.5){
+            $user->saldo= $user->saldo-0.5;
+            $user->save();
+          }
             return redirect($request->url);
         }
     }

@@ -45,7 +45,6 @@
 
   </div>
 
-<h1>Preparando la descarga</h1>
 <h2 id='CuentaAtras'></h2>
 
 

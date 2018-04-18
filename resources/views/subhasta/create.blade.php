@@ -1,5 +1,5 @@
 {{-- \resources\views\users\create.blade.php --}}
-@extends('layouts.layoutf')
+@extends('layouts.layout')
 
 @section('title', '| Add User')
 
@@ -31,10 +31,12 @@
         <input id="data" name="data" type="datetime-local" class="form-control" required>
         <!-- {!! Form::dateTime('data', '',['class'=> 'form-control','required']) !!} -->
     </div>
+    <div class="form-group">
+      {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
 
     </div>
+    </div>
 
-    {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
 
     {{ Form::close() }}
 

@@ -51,3 +51,4 @@ Route::get('/recargar/{id}', 'CarteraController@edit')->name('cartera');
 Route::post('/recargar/{id}','CarteraController@update');
 Route::get('/pdf/{id}', 'PdfController@index');
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/{id}', 'HomeController@show');

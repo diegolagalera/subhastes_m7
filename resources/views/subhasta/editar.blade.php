@@ -1,5 +1,5 @@
 {{-- \resources\views\users\create.blade.php --}}
-@extends('layouts.layoutf')
+@extends('layouts.layout')
 
 @section('title', '| Add User')
 
@@ -32,10 +32,10 @@
         {!! Form::date('data', '$subhasta->data',['class'=> 'form-control','required']) !!}
     </div>
 
-    </div>
 
+<div class="form-group">
     {{ Form::submit('Actualitzar',['class' => 'btn btn-primary']) }}
-
+</div></div>
     {{ Form::close() }}
 
 </div>

@@ -52,7 +52,7 @@
       </div>
     </div>
     <hr>
-    <h1><i class='fa fa-user'></i> Subhastes guanyades</h1>
+    <h1><i class='fa fa-diamond'></i> Subhastes guanyades</h1>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
 
