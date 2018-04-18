@@ -74,7 +74,7 @@ class licitaciocontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        dd("asdS");
     }
 
     /**

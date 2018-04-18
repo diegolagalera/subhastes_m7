@@ -67,6 +67,12 @@ function getTime() {
     document.getElementById('seg').innerHTML = secondsRound;
   }
   newtime = window.setTimeout("getTime();", 1000);
+  
+  var a =$("#money").text();
+  a=a.replace(",",".");
+  if(daysRound==-1|| a<0.50){
+    document.getElementById("myBtn").disabled = true;
+  }
 }
 </script>
 

@@ -77,7 +77,8 @@
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="/recargar/{{Auth::user()->id}}" onclick="scrollToDownload()">
-                              <i class="fa fa-money" ></i><?php $q=Auth::user()->saldo; echo number_format($q,2, ",", ".");?>
+                              <i class="fa fa-money" ></i><p id="money"><?php $q=Auth::user()->saldo; echo number_format($q,2, ",", ".");?>
+                              </p>
                         </a>
                       </li>
                   @endguest
