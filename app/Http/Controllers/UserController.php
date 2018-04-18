@@ -128,14 +128,15 @@ class UserController extends Controller
      */
      public function show($id) {
          $user = User::find($id);
-         $subhasta = DB::table('licitacions')->where([
-                    ['id_usuari', '=', $id],
-                    ['guanyador', '=', '1']
-                ])->join('subhastes', 'subhastes.id', '=', 'licitacions.id_subhasta')
-                ->join('articles', 'articles.id', '=', 'subhastes.id_article')
+
+        $subhasta = DB::table('licitacions')->select(
+          'licitacions.id as licid','licitacions.*','subhastes.*','articles.*')
+               ->where([
+                 ['id_usuari', '=', $id],
+                 ['guanyador', '=', '1']
+                 ])->join('subhastes', 'subhastes.id', '=', 'licitacions.id_subhasta')
+                 ->join('articles', 'articles.id', '=', 'subhastes.id_article')
                 ->get();
-
-
          return view("users.show",["user"=>$user,"subhasta"=>$subhasta]);
      }
 

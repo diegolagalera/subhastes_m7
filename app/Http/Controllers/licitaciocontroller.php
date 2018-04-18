@@ -61,9 +61,10 @@ class licitaciocontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+     public function show($id)
     {
-        //
+      $lic= Lisitacio::find($id);
+      return view("licitacio.show",["lic"=>$lic]);
     }
 
     /**
@@ -74,7 +75,7 @@ class licitaciocontroller extends Controller
      */
     public function edit($id)
     {
-        dd("asdS");
+
     }
 
     /**
@@ -86,7 +87,19 @@ class licitaciocontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lic= Lisitacio::find($id);
+        $lic->guanyador=2;
+        if($lic->save()){
+          $user =  User::find(Auth::user()->id);
+          if($user->saldo<$lic->preu){
+            return redirect('/licitacio/'.$lic->id);
+          }
+          $user->saldo= $user->saldo-$lic->preu;
+          if($user->save()){
+            return redirect('/users/'.$user->id);
+          }
+        }
+
     }
 
     /**

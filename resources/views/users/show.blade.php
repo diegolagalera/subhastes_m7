@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class='my-auto '>
+<div class='my-auto' onload="sd()">
 
     <h1><i class='fa fa-user'></i> User</h1>
     <hr>
@@ -67,13 +67,13 @@
     <tr>
       <td><img src="/{{$sub->imatge}}" height="40%">{{$sub->nom}}</td>
       <td>{{$sub->data}}</td>
-      <td>{{$sub->preu}}</td>
-      <td>{{Form::open(['method' =>'POST','route' => ['licitacio.edit', $sub->id_subhasta] ])}}
-          <input type="submit"  class="btn btn-success" value="Comprar">
-          {{Form::close()}}
+      <td >{{$sub->preu}}</td>
+      <td>
+        <a href="{{ url('licitacio/'.$sub->licid) }}" class="btn btn-success">Editar</a>
+
       </td>
     </tr>
-  @endforeach
+    @endforeach
 </table>
 
 </div>
@@ -97,6 +97,7 @@ function myFunction() {
   }
 }
 </script>
+
 <style>
 * {
   box-sizing: border-box;
