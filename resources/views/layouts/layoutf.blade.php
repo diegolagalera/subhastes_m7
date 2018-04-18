@@ -59,7 +59,7 @@
                           <i class="fa fa-users"></i> {{ Auth::user()->name }}
                       </a>
                       <div class="dropdown-menu dropdown-with-icons">
-                          <a href="./index.html" class="dropdown-item">
+                          <a href="./users" class="dropdown-item">
                               <i class="material-icons"></i> Profile
                           </a>
                             <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
