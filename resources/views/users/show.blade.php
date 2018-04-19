@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class='my-auto' onload="sd()">
+<div class='my-auto'>
 
     <h1><i class='fa fa-user'></i> User</h1>
     <hr>
@@ -54,107 +54,120 @@
     <hr>
     <h2><i class='fa fa-diamond'></i> Subhastes guanyades</h2>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
-<table id="myTable">
-  <tr class="header">
-    <th>Article</th>
-    <th>Subhasta finalitzada</th>
-    <th>Preu</th>
-    <th>Comprar</th>
-  </tr>
-  @foreach ($subhasta as $sub)
-    <tr>
-      <td><img src="/{{$sub->imatge}}" height="20%">{{$sub->nom}}</td>
-      <td>{{$sub->data}}</td>
-      <td >{{$sub->preu}}</td>
-      <td>
-        <a href="{{ url('licitacio/'.$sub->licid) }}" class="btn btn-success">Comprar</a>
+    <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Cercar subhastes..." title="Type in a name">
+    <table id="myTable1">
+      <tr class="header">
+        <th>Article</th>
+        <th>Subhasta finalitzada</th>
+        <th>Preu</th>
+        <th>Comprar</th>
+      </tr>
+      @foreach ($subhasta as $sub)
+        <tr>
+          <td><img src="/{{$sub->imatge}}" height="20%">{{$sub->nom}}</td>
+          <td>{{$sub->data}}</td>
+          <td ><?php echo number_format($sub->preu,2, ",", ".");?></td>
+          <td>
+            <a href="{{ url('licitacio/'.$sub->licid) }}" class="btn btn-success">Comprar</a>
 
-      </td>
-    </tr>
-    @endforeach
-</table>
-<h2><i class='fa fa-diamond'></i> Subhastes Comprades</h2>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
-<table id="myTable">
-  <tr class="header">
-    <th>Article</th>
-    <th>Subhasta finalitzada</th>
-    <th>Preu</th>
-    <th>Veure</th>
-    <th>pdf</th>
-  </tr>
-  @foreach ($compres as $comp)
-    <tr>
-      <td><img src="/{{$comp->imatge}}" height="20%">{{$comp->nom}}</td>
-      <td>{{$comp->data}}</td>
-      <td>{{$comp->preu}}</td>
-      <td>
-        <a href="{{ url('subhastes/'.$comp->id_subhasta) }}" class="btn btn-success">Veure</a>
-        </td>
-        <td>
-        <a href="#"><i style="font-size:30px;" class="fa fa-file-pdf-o "></i></a>
-      </td>
-    </tr>
-    @endforeach
-</table>
-</div>
+          </td>
+        </tr>
+        @endforeach
+    </table>
+    <h2><i class='fa fa-diamond'></i> Subhastes Comprades</h2>
+    <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Cercar subhastes..." title="Type in a name">
+    <table id="myTable2">
+      <tr class="header">
+        <th>Article</th>
+        <th>Subhasta finalitzada</th>
+        <th>Preu</th>
+        <th>Veure</th>
+        <th>pdf</th>
+      </tr>
+      @foreach ($compres as $comp)
+        <tr>
+          <td><img src="/{{$comp->imatge}}" height="20%">{{$comp->nom}}</td>
+          <td>{{$comp->data}}</td>
+          <td> <?php echo number_format($comp->preu,2, ",", ".");?></td>
+          <td>
+            <a href="{{ url('subhastes/'.$comp->id_subhasta) }}" class="btn btn-success">Veure</a>
+            </td>
+            <td>
+            <a href="#"><i style="font-size:30px;" class="fa fa-file-pdf-o "></i></a>
+          </td>
+        </tr>
+        @endforeach
+    </table>
+    </div>
 
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+    <script>
+    function myFunction1() {
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("myInput1");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable1");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
       }
     }
-  }
-}
-</script>
+    function myFunction2() {
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("myInput2");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable2");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
 
-<style>
-* {
-  box-sizing: border-box;
-}
+    <style>
+    #myInput1,#myInput2 {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
+    #myTable1,#myTable2 {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+      font-size: 18px;
+    }
 
-#myTable {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
+    #myTable1 th, #myTable1 td ,#myTable2 th, #myTable2 td {
+      text-align: left;
+      padding: 12px;
+    }
 
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
+    #myTable1 tr,#myTable2 tr {
+      border-bottom: 1px solid #ddd;
+    }
 
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
+    #myTable1 tr.header, #myTable2 tr.header, #myTable1 tr:hover, #myTable2 tr:hover {
+      background-color: #f1f1f1;
+    }
+    </style>
 
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
-}
-</style>
-
-@endsection
+    @endsection
