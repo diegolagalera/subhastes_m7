@@ -78,8 +78,8 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-      <a href="/" style="color:white; margin-left:40% " >
-        <span style="margin-top:1%" class="fa fa-home"></span>
+      <a href="/" style="color:white; margin-left:0.5% " >
+        <span style="margin-top:1.1%" class="fa fa-home"></span>
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">

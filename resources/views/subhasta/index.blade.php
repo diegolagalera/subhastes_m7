@@ -34,7 +34,6 @@
                     <td>{{ $subhasta->preu_venta.'$' }}</td>
 
                     <td>{{ $subhasta->actiu}}</td>
-                    <td id=<?php echo "a".$a; ?>>{{ $subhasta->data}}</td>
 
                     <td>
                     <a href="{{ url('subhastes/'.$subhasta->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
