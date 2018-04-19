@@ -8,7 +8,7 @@
 
 <div class='col-lg-4 col-lg-offset-4'>
 
-    <h1><i class='fa fa-money' id="preu"></i> <?php $q=Auth::user()->saldo; echo number_format($lic->preu,2, ",", ".");?></h1>
+    <h1 id="preu"><i class='fa fa-money' ></i> <?php $q=Auth::user()->saldo; echo number_format($lic->preu,2, ",", ".");?></h1>
   <hr>
 
 
@@ -43,8 +43,7 @@ $(document).ready(function(){
   a=a.replace(",",".");
   var b =$("#preu").text();
   b=b.replace(",",".");
-
-  if(a>b){
+  if(parseInt(a)<parseInt(b)){
     document.getElementById("pagar").disabled = true;
   }
 });

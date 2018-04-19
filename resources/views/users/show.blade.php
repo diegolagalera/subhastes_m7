@@ -52,10 +52,9 @@
       </div>
     </div>
     <hr>
-    <h1><i class='fa fa-diamond'></i> Subhastes guanyades</h1>
+    <h2><i class='fa fa-diamond'></i> Subhastes guanyades</h2>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
-
 <table id="myTable">
   <tr class="header">
     <th>Article</th>
@@ -65,17 +64,37 @@
   </tr>
   @foreach ($subhasta as $sub)
     <tr>
-      <td><img src="/{{$sub->imatge}}" height="40%">{{$sub->nom}}</td>
+      <td><img src="/{{$sub->imatge}}" height="20%">{{$sub->nom}}</td>
       <td>{{$sub->data}}</td>
       <td >{{$sub->preu}}</td>
       <td>
-        <a href="{{ url('licitacio/'.$sub->licid) }}" class="btn btn-success">Editar</a>
+        <a href="{{ url('licitacio/'.$sub->licid) }}" class="btn btn-success">Comprar</a>
 
       </td>
     </tr>
     @endforeach
 </table>
+<h2><i class='fa fa-diamond'></i> Subhastes Comprades</h2>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
+<table id="myTable">
+  <tr class="header">
+    <th>Article</th>
+    <th>Subhasta finalitzada</th>
+    <th>Preu</th>
+    <th>Comprar</th>
+  </tr>
+  @foreach ($compres as $comp)
+    <tr>
+      <td><img src="/{{$comp->imatge}}" height="20%">{{$comp->nom}}</td>
+      <td>{{$comp->data}}</td>
+      <td>{{$comp->preu}}</td>
+      <td>
+        <a href="{{ url('subhastes/'.$comp->id_subhasta) }}" class="btn btn-success">Veure</a>
 
+      </td>
+    </tr>
+    @endforeach
+</table>
 </div>
 
 <script>

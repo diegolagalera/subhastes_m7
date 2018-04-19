@@ -66,10 +66,19 @@ class HomeController extends Controller
           'licitacions.id as licid','licitacions.*','subhastes.*','articles.*')
                ->where([
                  ['id_usuari', '=', $id],
-                 ['guanyador', '=', '1']
+                 ['guanyador', '=', '2'],
+                 ['subhastes.data','<',date('Y-m-j H:i:s')]
                  ])->join('subhastes', 'subhastes.id', '=', 'licitacions.id_subhasta')
                  ->join('articles', 'articles.id', '=', 'subhastes.id_article')
                 ->get();
-         return view("users.show",["user"=>$user,"subhasta"=>$subhasta]);
+        $compres = DB::table('licitacions')->select(
+          'licitacions.id as licid','licitacions.*','subhastes.*','articles.*')
+               ->where([
+                 ['id_usuari', '=', $id],
+                 ['guanyador', '=', '3']
+                 ])->join('subhastes', 'subhastes.id', '=', 'licitacions.id_subhasta')
+                 ->join('articles', 'articles.id', '=', 'subhastes.id_article')
+                ->get();
+         return view("users.show",["user"=>$user,"subhasta"=>$subhasta,"compres"=>$compres]);
      }
 }
