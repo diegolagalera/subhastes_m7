@@ -82,6 +82,7 @@
     <th>Subhasta finalitzada</th>
     <th>Preu</th>
     <th>Veure</th>
+    <th>pdf</th>
   </tr>
   @foreach ($compres as $comp)
     <tr>
@@ -90,7 +91,9 @@
       <td>{{$comp->preu}}</td>
       <td>
         <a href="{{ url('subhastes/'.$comp->id_subhasta) }}" class="btn btn-success">Veure</a>
-        <a href="#"><i class="fa fa-file-pdf-o fa-2x "></i></a>
+        </td>
+        <td>
+        <a href="#"><i style="font-size:30px;" class="fa fa-file-pdf-o "></i></a>
       </td>
     </tr>
     @endforeach
