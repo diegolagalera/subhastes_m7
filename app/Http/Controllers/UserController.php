@@ -120,25 +120,6 @@ class UserController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-     public function show($id) {
-         $user = User::find($id);
-
-        $subhasta = DB::table('licitacions')->select(
-          'licitacions.id as licid','licitacions.*','subhastes.*','articles.*')
-               ->where([
-                 ['id_usuari', '=', $id],
-                 ['guanyador', '=', '1']
-                 ])->join('subhastes', 'subhastes.id', '=', 'licitacions.id_subhasta')
-                 ->join('articles', 'articles.id', '=', 'subhastes.id_article')
-                ->get();
-         return view("users.show",["user"=>$user,"subhasta"=>$subhasta]);
-     }
 
     /**
      * Show the form for editing the specified resource.
