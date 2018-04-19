@@ -106,6 +106,11 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/feed" target="_blank" data-original-title="Follow us on Instagram">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
