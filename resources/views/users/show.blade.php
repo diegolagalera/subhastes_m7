@@ -54,85 +54,66 @@
     <hr>
     <h2><i class='fa fa-diamond'></i> Subhastes guanyades</h2>
 
-    <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Cercar subhastes..." title="Type in a name">
-    <table id="myTable1">
-      <tr class="header">
-        <th>Article</th>
-        <th>Subhasta finalitzada</th>
-        <th>Preu</th>
-        <th>Comprar</th>
-      </tr>
-      @foreach ($subhasta as $sub)
-        <tr>
-          <td><img src="/{{$sub->imatge}}" height="20%">{{$sub->nom}}</td>
-          <td>{{$sub->data}}</td>
-          <td ><?php echo number_format($sub->preu,2, ",", ".");?></td>
-          <td>
-            <a href="{{ url('licitacio/'.$sub->licid) }}" class="btn btn-success">Comprar</a>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
+<table id="myTable">
+  <tr class="header">
+    <th>Article</th>
+    <th>Subhasta finalitzada</th>
+    <th>Preu</th>
+    <th>Comprar</th>
+  </tr>
+  @foreach ($subhasta as $sub)
+    <tr>
+      <td><img src="/{{$sub->imatge}}" height="20%">{{$sub->nom}}</td>
+      <td>{{$sub->data}}</td>
+      <td >{{$sub->preu}}</td>
+      <td>
+        <a href="{{ url('licitacio/'.$sub->licid) }}" class="btn btn-success">Comprar</a>
 
-          </td>
-        </tr>
-        @endforeach
-    </table>
-    <h2><i class='fa fa-diamond'></i> Subhastes Comprades</h2>
-    <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Cercar subhastes..." title="Type in a name">
-    <table id="myTable2">
-      <tr class="header">
-        <th>Article</th>
-        <th>Subhasta finalitzada</th>
-        <th>Preu</th>
-        <th>Veure</th>
-        <th>pdf</th>
-      </tr>
-      @foreach ($compres as $comp)
-        <tr>
-          <td><img src="/{{$comp->imatge}}" height="20%">{{$comp->nom}}</td>
-          <td>{{$comp->data}}</td>
-          <td> <?php echo number_format($comp->preu,2, ",", ".");?></td>
-          <td>
-            <a href="{{ url('subhastes/'.$comp->id_subhasta) }}" class="btn btn-success">Veure</a>
-            </td>
-            <td>
-            <a href="#"><i style="font-size:30px;" class="fa fa-file-pdf-o "></i></a>
-          </td>
-        </tr>
-        @endforeach
-    </table>
-    </div>
+      </td>
+    </tr>
+    @endforeach
+</table>
+<h2><i class='fa fa-diamond'></i> Subhastes Comprades</h2>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
+<table id="myTable">
+  <tr class="header">
+    <th>Article</th>
+    <th>Subhasta finalitzada</th>
+    <th>Preu</th>
+    <th>Veure</th>
+    <th>pdf</th>
+  </tr>
+  @foreach ($compres as $comp)
+    <tr>
+      <td><img src="/{{$comp->imatge}}" height="20%">{{$comp->nom}}</td>
+      <td>{{$comp->data}}</td>
+      <td>{{$comp->preu}}</td>
+      <td>
+        <a href="{{ url('subhastes/'.$comp->id_subhasta) }}" class="btn btn-success">Veure</a>
+        </td>
+        <td>
+        <a href="/pdf/{{$comp->id}}"><i style="font-size:30px;" class="fa fa-file-pdf-o "></i></a>
+      </td>
+    </tr>
+    @endforeach
+</table>
+</div>
 
-    <script>
-    function myFunction1() {
-      var input, filter, table, tr, td, i;
-      input = document.getElementById("myInput1");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable1");
-      tr = table.getElementsByTagName("tr");
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }
-    }
-    function myFunction2() {
-      var input, filter, table, tr, td, i;
-      input = document.getElementById("myInput2");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable2");
-      tr = table.getElementsByTagName("tr");
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
       }
     }
     </script>
