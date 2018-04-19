@@ -93,6 +93,7 @@
         <a href="{{ url('subhastes/'.$comp->id_subhasta) }}" class="btn btn-success">Veure</a>
         </td>
         <td>
+        <a href="/pdf/{{$comp->id}}"><i style="font-size:30px;" class="fa fa-file-pdf-o "></i></a>
       </td>
     </tr>
     @endforeach
