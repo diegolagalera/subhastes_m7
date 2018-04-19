@@ -70,7 +70,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Admin</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -78,8 +78,8 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-      <a href="/" style="color:white; " >
-        <span class="fa fa-home"></span>
+      <a href="/" style="color:white; margin-left:40% " >
+        <span style="margin-top:1%" class="fa fa-home"></span>
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
@@ -118,7 +118,9 @@
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
-                        </a>                      </div>
+                        </a>
+                      </div>
+
                     </li>
                   </ul>
 
