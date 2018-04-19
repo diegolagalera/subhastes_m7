@@ -54,8 +54,8 @@
     <hr>
     <h2><i class='fa fa-diamond'></i> Subhastes guanyades</h2>
 
-<input type="text" id="myInput1" onkeyup="myFunction()1" placeholder="Cercar subhastes..." title="Type in a name">
-<table id="myTable">
+<input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Cercar subhastes..." title="Type in a name">
+<table id="myTable1">
   <tr class="header">
     <th>Article</th>
     <th>Subhasta finalitzada</th>
@@ -75,8 +75,8 @@
     @endforeach
 </table>
 <h2><i class='fa fa-diamond'></i> Subhastes Comprades</h2>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
-<table id="myTable">
+<input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Cercar subhastes..." title="Type in a name">
+<table id="myTable2">
   <tr class="header">
     <th>Article</th>
     <th>Subhasta finalitzada</th>
@@ -101,11 +101,28 @@
 </div>
 
 <script>
-function myFunction() {
+function myFunction1() {
   var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
+  input = document.getElementById("myInput1");
   filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
+  table = document.getElementById("myTable1");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function myFunction2() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput2");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable2");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];

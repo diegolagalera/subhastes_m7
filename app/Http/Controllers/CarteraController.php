@@ -85,7 +85,7 @@ class CarteraController extends Controller
 
       $user->saldo=  $user->saldo+$request->saldo;
       if($user->save()){
-        return view('users.show',["user"=>$user]);
+          return redirect('/'.$user->id);
       }
 
     }

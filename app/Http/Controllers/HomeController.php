@@ -44,9 +44,9 @@ class HomeController extends Controller
       // $ar=new articles(DB::select('select * from articles where id = :id', ['id' => $s->id_article]));
 
 
+      $nom="Subhastes";
 
-
-      return view('home1')->with('su', $su)->with('ar',$ar);
+      return view('home1')->with('su', $su)->with('ar',$ar)->with('nom',$nom);
     }
     public function index1()
     {

@@ -59,8 +59,8 @@ class CategoriaController extends Controller
     foreach ($su as $s) {
       $ar->push(DB::select('select * from articles where id = :id', ['id' => $s->id_article]));
     }
-
-    return view('home1')->with('su', $su)->with('ar',$ar);
+    $cat =categoria::find($id);
+    return view('home1')->with('su', $su)->with('ar',$ar)->with('nom',$cat->nom);
   }
 
   /**

@@ -40,9 +40,13 @@
 $(document).ready(function(){
 
   var a =$("#money").text();
-  a=a.replace(",",".");
+
   var b =$("#preu").text();
+  a=a.replace(".","");
+  a=a.replace(",",".");
+  b=b.replace(".","");
   b=b.replace(",",".");
+
   if(parseInt(a)<parseInt(b)){
     document.getElementById("pagar").disabled = true;
   }

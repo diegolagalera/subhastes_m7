@@ -15,7 +15,7 @@
     <li class="page-item"><a class="page-link" href="/categories/7">Petit electrodomèstic</a></li>
   </ul>
 </nav>
-<h1 style="text-align:center"><b>Subhastes</b></h1>
+<h1 style="text-align:center"><b>{{$nom}}</b></h1>
 
 <div class="row">
   @foreach($ar as $a)
