@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\Categoria;
 
 class CategoriaController extends Controller
@@ -50,7 +51,16 @@ class CategoriaController extends Controller
    */
   public function show($id)
   {
-      //
+    $su=DB::table('subhastes')
+    ->join('categories_articles','subhastes.id_article','=','categories_articles.id_article')
+    ->where('categories_articles.id_categoria','=',$id)->get();
+
+    $ar = collect();
+    foreach ($su as $s) {
+      $ar->push(DB::select('select * from articles where id = :id', ['id' => $s->id_article]));
+    }
+
+    return view('home1')->with('su', $su)->with('ar',$ar);
   }
 
   /**

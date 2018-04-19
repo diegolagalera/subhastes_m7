@@ -3,6 +3,18 @@
 @section('title', '| Add User')
 
 @section('content')
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="/">Totes</a></li>
+    <li class="page-item"><a class="page-link" href="/categories/1">Informàtica</a></li>
+    <li class="page-item"><a class="page-link" href="/categories/2">Fotografia</a></li>
+    <li class="page-item"><a class="page-link" href="/categories/3">Consoles i jocs</a></li>
+    <li class="page-item"><a class="page-link" href="/categories/4">Imatge i so</a></li>
+    <li class="page-item"><a class="page-link" href="/categories/5">Telefonia</a></li>
+    <li class="page-item"><a class="page-link" href="/categories/6">Gran electrodomèstic</a></li>
+    <li class="page-item"><a class="page-link" href="/categories/7">Petit electrodomèstic</a></li>
+  </ul>
+</nav>
 <h1 style="text-align:center"><b>Subhastes</b></h1>
 
 <div class="row">
