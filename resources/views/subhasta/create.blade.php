@@ -23,7 +23,7 @@
 
     <div class="form-group">
         {{ Form::label('actiu', 'Actiu') }}
-        {{ Form::text('actiu', '', array('class' => 'form-control')) }}
+        {!! Form::select('actiu',['1','0'],null,['class'=>'form-control','required']) !!}
     </div>
 
     <div class="form-group">
