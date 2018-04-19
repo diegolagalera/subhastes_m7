@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\User;
 use Auth;
+use App\Lisitacio;
+use DB;
 
 
 //Importing laravel-permission models
@@ -118,16 +120,6 @@ class UserController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-     public function show($id) {
-         $user = User::find($id);
-         return view("users.show",["user"=>$user]);
-     }
 
     /**
      * Show the form for editing the specified resource.

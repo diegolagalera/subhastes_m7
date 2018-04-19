@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\articles;
 use App\Subhasta;
 use App\Lisitacio;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 class HomeController extends Controller
@@ -44,10 +45,31 @@ class HomeController extends Controller
 
 
 
+
       return view('home1')->with('su', $su)->with('ar',$ar);
     }
     public function index1()
     {
         return view('layouts.layout');
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+     public function show($id) {
+         $user = User::find($id);
+
+        $subhasta = DB::table('licitacions')->select(
+          'licitacions.id as licid','licitacions.*','subhastes.*','articles.*')
+               ->where([
+                 ['id_usuari', '=', $id],
+                 ['guanyador', '=', '1']
+                 ])->join('subhastes', 'subhastes.id', '=', 'licitacions.id_subhasta')
+                 ->join('articles', 'articles.id', '=', 'subhastes.id_article')
+                ->get();
+         return view("users.show",["user"=>$user,"subhasta"=>$subhasta]);
+     }
 }

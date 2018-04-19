@@ -6,6 +6,6 @@
 <input type="hidden" name="url" value='subhastes/{{$id}}'>
 <input type="hidden" name="subhasta" value='{{$id}}'>
 
-  <input type="submit" value="Enviar" class="btn btn-success">
+  <input type="submit" value="Enviar" id="myBtn" class="btn btn-success">
 </div>
 {{Form::close()}}

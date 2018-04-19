@@ -10,7 +10,7 @@
 
   <hr>
   <div class="table-responsive">
-      <table class="table table-bordered table-striped">
+      <table id="example"  class="table table-bordered table-striped">
       <thead>
         <tr>
           <td></td>
@@ -23,7 +23,7 @@
             <td>{{$product->nom}}</td>
             <td>{{$product->descripcio}}</td>
             <td>{{$product->caracteristiques}}</td>
-            <td><img class="imgproduct" width="350px" height="200px" src="{{$product->imatge}}"></td>
+            <td><img class="imgproduct" width="80%" src="{{$product->imatge}}"></td>
             <td>@include('products.delete',['product'=>$product])
               <a href="{{ url('productes/'.$product->id.'/edit') }}" class="btn btn-success">Editar</a>
             </td>

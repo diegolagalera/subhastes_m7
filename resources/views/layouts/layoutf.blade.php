@@ -39,44 +39,43 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                   @guest
-                      <li><a href="{{ route('login') }}" style="color:white">{{ __('Login') }}</a></li>
-                      <li><a href="{{ url('create') }}" style="color:white;margin-left:15px">{{ __('Register') }}</a></li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('login') }}">
+                          <i class="material-icons"></i> {{ __('Login') }}
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url('create') }}">
+                          <i class="material-icons"></i> {{ __('Register') }}
+                      </a>
+                  </li>
+                      <!-- <li><a href="{{ route('login') }}" style="color:white">{{ __('Login') }}</a></li>
+                      <li><a href="{{ url('create') }}" style="color:white;margin-left:15px">{{ __('Register') }}</a></li> -->
 
 
                   @else
-                  <li class="dropdown user user-menu"  >
-
-
-
-                          <a data-toggle="dropdown" style="color:white" id="navbarDropdown" class="nav-link dropdown-toggle" href="javascript:void(0)"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-
-                         <span class="pull-right-container">
-                              <i class="fa fa-users"> </i>
-                            </span>
-
-                              {{ Auth::user()->name }} <span class="caret"></span>
+                  <li class="dropdown nav-item">
+                      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                          <i class="fa fa-users"></i> {{ Auth::user()->name }}
+                      </a>
+                      <div class="dropdown-menu dropdown-with-icons">
+                          <a href="/{{ Auth::user()->id}}" class="dropdown-item">
+                              <i class="material-icons"></i> Profile
                           </a>
-                          <ul class="dropdown-menu">
+                            <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                                <i class="material-icons"></i> {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                      </div>
+                  </li>
 
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <a href="#" class="dropdown-item">Profile</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                            </li>
-                          </ul>
-
-
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                  @csrf
-                              </form>
-                      </li>
                       <li class="nav-item">
                           <a class="nav-link" href="/recargar/{{Auth::user()->id}}" onclick="scrollToDownload()">
-                              <i class="fa fa-money" ></i><?php $q=Auth::user()->saldo; echo number_format($q,2, ",", ".");?>
+                              <i class="fa fa-money" ></i><p id="money"><?php $q=Auth::user()->saldo; echo number_format($q,2, ",", ".");?>
+                              </p>
                         </a>
                       </li>
                   @endguest

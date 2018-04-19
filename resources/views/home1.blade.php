@@ -24,7 +24,7 @@
           @foreach($su as $s)
           @if($s->id_article==$e->id)
             <h3 style="text-align:center">{{$s->data}}</h3>
-            <a href="{{ url('subhastes/'.$s->id.'') }}" class="btn btn-success">Crear Subhastes</a>
+            <a href="{{ url('subhastes/'.$s->id.'') }}" class="btn btn-success">Lisitació</a>
 
           @endif
           @endforeach
@@ -45,7 +45,6 @@
 
   </div>
 
-<h1>Preparando la descarga</h1>
 <h2 id='CuentaAtras'></h2>
 
 

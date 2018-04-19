@@ -41,6 +41,8 @@ class productescontroller extends Controller
      */
     public function store(Request $request)
     {
+      $r="images/noimg.png";
+      if($request->file('imatge')!=null){
         //IMATGE
         $image = $request->file('imatge');
         $path = time().'.'.$image->getClientOriginalExtension();
@@ -48,6 +50,8 @@ class productescontroller extends Controller
         $image->move($destinationPath, $path);
         $r=(string)$request->root().'/images/'.''.$path;
         ///IMATGE
+      }
+
 
         $product = new articles;
         $product->nom=$request->nom;
@@ -98,19 +102,22 @@ class productescontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-      //IMATGE
-      $image = $request->file('imatge');
-      $path = time().'.'.$image->getClientOriginalExtension();
-      $destinationPath = public_path('images');
-      $image->move($destinationPath, $path);
-      $r=(string)$request->root().'/images/'.''.$path;
-      ///IMATGE
+
 
       $product = articles::find($id);
       $product->nom=$request->nom;
       $product->descripcio=$request->descripcio;
       $product->caracteristiques=$request->caracteristiques;
-      $product->imatge=$r;
+      //IMATGE
+      if($request->file('imatge')!=null){
+        $image = $request->file('imatge');
+        $path = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('images');
+        $image->move($destinationPath, $path);
+        $r=(string)$request->root().'/images/'.''.$path;
+        $product->imatge=$r;
+      }
+      ///IMATGE
 
       if($product->save()){
         $product->afegircate($product->id,$request->categoria);
