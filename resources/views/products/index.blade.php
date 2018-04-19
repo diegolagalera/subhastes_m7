@@ -32,7 +32,9 @@
       </tbody>
     </table>
     <a href="{{ url('productes/create') }}" class="btn btn-success">Afegir producte</a>
-
+    <div class="" style="text-align:center">
+      {!! $products->render() !!}
+    </div>
   </div>
 </div>
 @endsection

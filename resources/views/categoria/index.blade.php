@@ -26,6 +26,9 @@
         </tbody>
       </table>
       <a href="{{ url('categories/create') }}" class="btn btn-success">Afegir categories</a>
+      <div class="" style="text-align:center">
+        {!! $categoria->render() !!}
+      </div>
     </div>
   <hr>
 </div>

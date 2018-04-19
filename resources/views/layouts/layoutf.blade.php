@@ -206,6 +206,7 @@
             // Sliders Init
             materialKit.initSliders();
         });
+        
     </script>
     <script>
 
