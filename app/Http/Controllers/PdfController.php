@@ -15,7 +15,7 @@ class PdfController extends Controller
       //dd($id);
       $data = DB::table('subhastes')->where('subhastes.id', '=', $id)->join('articles', 'subhastes.id_article', '=', 'articles.id')->get();
 
-      dd($data);
+      //dd($data);
       $pdf = PDF::loadView('pdf.invoice', compact('data'));
       //return $pdf->download('invoice.pdf');
       //return view("pdf.invoice")->with(['data'=>$data]);
