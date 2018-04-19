@@ -54,7 +54,7 @@
     <hr>
     <h2><i class='fa fa-diamond'></i> Subhastes guanyades</h2>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
+<input type="text" id="myInput1" onkeyup="myFunction()1" placeholder="Cercar subhastes..." title="Type in a name">
 <table id="myTable">
   <tr class="header">
     <th>Article</th>
@@ -116,7 +116,10 @@ function myFunction() {
         tr[i].style.display = "none";
       }
     }
-    </script>
+  }
+}
+
+</script>
 
     <style>
     #myInput1,#myInput2 {
