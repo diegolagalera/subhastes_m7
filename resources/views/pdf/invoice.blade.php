@@ -10,29 +10,49 @@
 
 <body>
 
-<h1> - Subhasta - </h1>
+<h1 class="text-center"> - Subhasta - </h1> <br/>
 
 
 <div class="container" style="text-align: justify">
+
   @foreach($data as $a)
     <div class="row">
       <div class="col-md-10 mx-auto">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Campo</th>
+              <th>Camp</th>
               <th class="text-right">Valor</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($a as $s => $valor)
-              @if(strstr($s, 'imatge') == false && strstr($s, 'id') == false && strstr($s, 'actiu') == false)
-              <tr>
-                <td>{{$s}}</td>
-                <td class="text-right">{{$valor}}</td>
-              </tr>
-              @endif
-            @endforeach
+
+                <tr>
+                  <td>Nom artícle</td>
+                  <td class="text-right">{{$data[0]->nom}}</td>
+                </tr>
+                <tr>
+                  <td>Descripció</td>
+                  <td class="text-right">{{$data[0]->descripcio}}</td>
+                </tr>
+                <tr>
+                  <td>Característiques</td>
+                  <td class="text-right">{{$data[0]->caracteristiques}}</td>
+                </tr>
+                <tr>
+                  <td>Preu de venta</td>
+                  <td class="text-right">{{$data[0]->preu_venta}}</td>
+                </tr>
+                <tr>
+                  <td>Data inici subhasta</td>
+                  <td class="text-right">{{$data[0]->created_at}}</td>
+                </tr>
+                <tr>
+                  <td>Data finalització subhasta</td>
+                  <td class="text-right">{{$data[0]->data}}</td>
+                </tr>
+
+
           </tbody>
         </table>
       </div>

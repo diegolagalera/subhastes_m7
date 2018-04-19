@@ -38,8 +38,5 @@ Route::resource('/feed', 'FeedController');
 Route::get('/recargar/{id}', 'CarteraController@edit')->name('cartera');
 Route::post('/recargar/{id}','CarteraController@update');
 Route::get('/pdf/{id}', 'PdfController@index');
-<<<<<<< HEAD
-=======
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/{id}', 'HomeController@show');
->>>>>>> ff7428dc0a007c2e38733d9eae2584b471e81ab5
