@@ -88,7 +88,7 @@ class licitaciocontroller extends Controller
     public function update(Request $request, $id)
     {
         $lic= Lisitacio::find($id);
-        $lic->guanyador=2;
+        $lic->guanyador=3;
         if($lic->save()){
           $user =  User::find(Auth::user()->id);
           if($user->saldo<$lic->preu){
@@ -96,7 +96,7 @@ class licitaciocontroller extends Controller
           }
           $user->saldo= $user->saldo-$lic->preu;
           if($user->save()){
-            return redirect('/users/'.$user->id);
+            return redirect('/'.$user->id);
           }
         }
 
