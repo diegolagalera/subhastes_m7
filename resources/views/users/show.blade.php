@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class='my-auto' onload="sd()">
+<div class='my-auto'>
 
     <h1><i class='fa fa-user'></i> User</h1>
     <hr>
@@ -54,7 +54,7 @@
     <hr>
     <h2><i class='fa fa-diamond'></i> Subhastes guanyades</h2>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cercar subhastes..." title="Type in a name">
+<input type="text" id="myInput1" onkeyup="myFunction()1" placeholder="Cercar subhastes..." title="Type in a name">
 <table id="myTable">
   <tr class="header">
     <th>Article</th>
@@ -81,7 +81,8 @@
     <th>Article</th>
     <th>Subhasta finalitzada</th>
     <th>Preu</th>
-    <th>Comprar</th>
+    <th>Veure</th>
+    <th>pdf</th>
   </tr>
   @foreach ($compres as $comp)
     <tr>
@@ -90,7 +91,9 @@
       <td>{{$comp->preu}}</td>
       <td>
         <a href="{{ url('subhastes/'.$comp->id_subhasta) }}" class="btn btn-success">Veure</a>
-
+        </td>
+        <td>
+        <a href="/pdf/{{$comp->id}}"><i style="font-size:30px;" class="fa fa-file-pdf-o "></i></a>
       </td>
     </tr>
     @endforeach
@@ -115,43 +118,40 @@ function myFunction() {
     }
   }
 }
+
 </script>
 
-<style>
-* {
-  box-sizing: border-box;
-}
+    <style>
+    #myInput1,#myInput2 {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
+    #myTable1,#myTable2 {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+      font-size: 18px;
+    }
 
-#myTable {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
+    #myTable1 th, #myTable1 td ,#myTable2 th, #myTable2 td {
+      text-align: left;
+      padding: 12px;
+    }
 
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
+    #myTable1 tr,#myTable2 tr {
+      border-bottom: 1px solid #ddd;
+    }
 
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
+    #myTable1 tr.header, #myTable2 tr.header, #myTable1 tr:hover, #myTable2 tr:hover {
+      background-color: #f1f1f1;
+    }
+    </style>
 
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
-}
-</style>
-
-@endsection
+    @endsection
