@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Categoria;
-
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 class CategoriaController extends Controller
 {
 
   public function index()
   {
-      $categories = Categoria::all();
+      $categories = Categoria::orderBy('id','ASC')->paginate(5);
     //  dd($categories);
 
       return view("categoria.index",["categoria"=>$categories]);

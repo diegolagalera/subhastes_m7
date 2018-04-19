@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\articles;
 use App\Categoria;
-
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 class productescontroller extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class productescontroller extends Controller
      */
     public function index()
     {
-        $articles = articles::all();
+        $articles = articles::orderBy('id','ASC')->paginate(2);
         return view("products.index",["products"=>$articles]);
     }
 

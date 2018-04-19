@@ -7,6 +7,8 @@ use App\articles;
 use App\Subhasta;
 use App\Lisitacio;
 use DB;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 class SubhastaController extends Controller
 {
   public function __construct()
@@ -20,7 +22,7 @@ class SubhastaController extends Controller
      */
     public function index()
     {
-      $su = Subhasta::all();
+      $su = Subhasta::orderBy('id','ASC')->paginate(1);
       foreach ($su as $c) {
         $c->id_article = $c->id_article()->nom;
       }
