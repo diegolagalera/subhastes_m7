@@ -19,7 +19,7 @@ class PdfController extends Controller
       $pdf = PDF::loadView('pdf.invoice', compact('data'));
       //return $pdf->download('invoice.pdf');
       //return view("pdf.invoice")->with(['data'=>$data]);
-      return $pdf -> download('pdf.invoice.pdf');
+      return $pdf -> download('subhasta'.$id.'.pdf');
     }
 
 }
