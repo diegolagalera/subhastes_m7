@@ -25,7 +25,8 @@ class UsersTableSeeder extends Seeder
         'email_token' => base64_encode('tokendelemail'),
         'active'  => '1',
         'verified'  => '1',
-        'id_rol'  => '1'
+        'id_rol'  => '1',
+        'saldo' =>0.5
       ]);
       $user->assignRole('administrador');
 
@@ -42,7 +43,8 @@ class UsersTableSeeder extends Seeder
         'email_token' => base64_encode('tokendelemail'),
         'active'  => '1',
         'verified'  => '1',
-        'id_rol'  => '2'
+        'id_rol'  => '2',
+        'saldo' =>0.5
       ]);
       $user->assignRole('user');
 

@@ -42,6 +42,17 @@ Voltatge: 220-240V',
         Bateria: 7.4V / 3300mAh X 2',
         'imatge'=> 'images/1522776160.png',
       ]);
+      articles::create([
+        'nom'=> 'Xiaomi Mi A1',
+        'descripcio'=> 'Xiaomi Mi A1 Dual Sim 4G 64GB (Lliure) - Or',
+        'caracteristiques'=> 'Pantalla LTPS FHD de 5.5 ", resolución 1920 x 1080, 403 PPI
+        Cámara trasera 12MP + 12MP
+        Bluetooth 4.2
+        Bateria 3080mAh
+        Processador Snapdragon 625
+        ',
+        'imatge'=> 'images/123.png',
+      ]);
 
 
     }

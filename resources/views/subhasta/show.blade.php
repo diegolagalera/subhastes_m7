@@ -35,7 +35,7 @@
 <div class="row">
     <div class="col-md-5  text-justify">{{$articles->caracteristiques}}</div>
     <div class="col-md-7 text-right mt-auto p-2">
-      <a href="{{url('/subhastes')}}">Tornar</a>
+      <a href="{{url('/')}}">Tornar</a>
     </div>
 </div>
 
