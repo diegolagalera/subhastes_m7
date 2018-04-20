@@ -52,9 +52,10 @@ class CategoriaController extends Controller
    */
   public function show($id)
   {
+    
     $su=DB::table('subhastes')
     ->join('categories_articles','subhastes.id_article','=','categories_articles.id_article')
-    ->where('categories_articles.id_categoria','=',$id)->get();
+    ->where([['categories_articles.id_categoria','=',$id],['subhastes.data','>',date('Y-m-j H:i:s')]])->get();
 
     $ar = collect();
     foreach ($su as $s) {

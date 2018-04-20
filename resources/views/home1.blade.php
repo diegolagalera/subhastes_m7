@@ -13,6 +13,7 @@
     <li class="page-item"><a class="page-link" href="/categories/5">Telefonia</a></li>
     <li class="page-item"><a class="page-link" href="/categories/6">Gran electrodomèstic</a></li>
     <li class="page-item"><a class="page-link" href="/categories/7">Petit electrodomèstic</a></li>
+    <li><a href="/historial"><button type="button"  class="btn btn-outline-light btn-sm">Historial</button></a></li>
   </ul>
 </nav>
 <h1 style="text-align:center"><b>{{$nom}}</b></h1>

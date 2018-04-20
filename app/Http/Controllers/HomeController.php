@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
       // $su = Subhasta::all();
-      $su=DB::select('select * from subhastes where actiu =1');
+      $su=DB::select('select * from subhastes where actiu =1 and data>\''.date('Y-m-j H:i:s').'\'');
       // foreach ($su as $c) {
       //   $c->id_article = $c->id_article()->nom;
       // }

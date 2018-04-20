@@ -21,6 +21,7 @@ Route::resources([
   'productes' => 'productescontroller'
 ]);
 
+Route::get('/historial','HistorialController@index')->name('historial');
 
 //rutes diego
 Route::get('register/verify/{code}', 'Auth\RegisterController@verify');

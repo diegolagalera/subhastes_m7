@@ -66,7 +66,7 @@
     <tr>
       <td><img src="/{{$sub->imatge}}" height="20%">{{$sub->nom}}</td>
       <td>{{$sub->data}}</td>
-      <td >{{$sub->preu}}</td>
+      <td ><?php echo number_format($sub->preu,2, ",", ".");?></td>
       <td>
         <a href="{{ url('licitacio/'.$sub->licid) }}" class="btn btn-success">Comprar</a>
 
@@ -88,7 +88,7 @@
     <tr>
       <td><img src="/{{$comp->imatge}}" height="20%">{{$comp->nom}}</td>
       <td>{{$comp->data}}</td>
-      <td>{{$comp->preu}}</td>
+      <td><?php echo number_format($comp->preu,2, ",", ".");?></td>
       <td>
         <a href="{{ url('subhastes/'.$comp->id_subhasta) }}" class="btn btn-success">Veure</a>
         </td>
@@ -98,6 +98,12 @@
     </tr>
     @endforeach
 </table>
+</div>
+<div class="row">
+    <div class="col-md-5  text-justify"></div>
+    <div class="col-md-7 text-right mt-auto p-2">
+      <a href="{{url('/')}}">Tornar</a>
+    </div>
 </div>
 
 <script>

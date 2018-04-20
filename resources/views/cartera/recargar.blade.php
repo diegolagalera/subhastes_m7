@@ -20,7 +20,7 @@
 <div class="row">
     <div class="col-md-5  text-justify"></div>
     <div class="col-md-7 text-right mt-auto p-2">
-      <a href="{{url('/subhastes')}}">Tornar</a>
+      <a href="/{{Auth::user()->id}}">Tornar</a>
     </div>
 </div>
 @endsection
