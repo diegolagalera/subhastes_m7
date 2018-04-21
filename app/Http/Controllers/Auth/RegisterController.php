@@ -112,6 +112,7 @@ class RegisterController extends Controller
     $data['name']=$request->name;
     $data['email']=$request->email;
     $data['confirmation_code']=$request->email_token;
+    $request['password']=bcrypt($request->password);
     $user = User::create($request->only('email', 'name', 'password','surname','dni','country','cp','city','tel','email_token')); //Retrieving only the email and password data
 
     $roles = $request['roles']; //Retrieving the roles field
@@ -133,7 +134,7 @@ class RegisterController extends Controller
 
 
 //Redirect to the users.index view and display message
-    return redirect()->route('users.index')
+    return redirect()->route('/')
         ->with('flash_message',
          'User successfully added.');
 
@@ -144,7 +145,6 @@ class RegisterController extends Controller
         $user = User::where('email_token',$code)->first();
 
         if(!$user){
-          dd("hola");
             return redirect('/');
         }
 
