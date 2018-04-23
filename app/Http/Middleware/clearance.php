@@ -19,7 +19,7 @@ class clearance
       {
           return $next($request);
       }
-
+      
       if ($request->is('categories/create'))//If user is creating a post
        {
           if (!Auth::user()->hasPermissionTo('create_lisitacions'))
