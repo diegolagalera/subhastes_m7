@@ -75,6 +75,7 @@ class UserController extends Controller
     $data['name']=$request->name;
     $data['email']=$request->email;
     $data['confirmation_code']=$request->email_token=$codi;
+    $request['password']=bcrypt($request->password);
     $user = User::create($request->only('email', 'name', 'password','surname','dni','country','cp','city','tel','email_token')); //Retrieving only the email and password data
 
     $roles = $request['roles']; //Retrieving the roles field
@@ -104,8 +105,6 @@ class UserController extends Controller
 
     public function verify($code)
     {
-      dd("hola");
-
         $user = User::where('email_token',$code)->first();
 
         if(!$user){
@@ -151,6 +150,7 @@ class UserController extends Controller
              'email'=>'required|email|unique:users,email,'.$id,
              'password'=>'required|min:6|confirmed'
          ]);
+         $request['password']=bcrypt($request->password);
          $input = $request->only(['name', 'email', 'password']); //Retreive the name, email and password fields
          $roles = $request['roles']; //Retreive all roles
          $user->fill($input)->save();

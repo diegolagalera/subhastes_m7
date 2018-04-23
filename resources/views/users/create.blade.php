@@ -1,5 +1,5 @@
 {{-- \resources\views\users\create.blade.php --}}
-@extends('layouts.layoutf')
+@extends('layouts.layout')
 
 @section('title', '| Add User')
 
@@ -7,19 +7,21 @@
 
 <div class='col-lg-4 col-lg-offset-4'>
 
-    <h1><i class='fa fa-user-plus'></i> Add User</h1>
     <hr>
 
     {{ Form::open(array('url' => 'users')) }}
 
-    <div class="form-group">
-        {{ Form::label('name', 'Nom') }}
-        {{ Form::text('name', 'diego', array('class' => 'form-control')) }}
-    </div>
+    <div class="form-inline">
+      <div class="form-group">
+          {{ Form::label('name', 'Nom') }}
+          {{ Form::text('name', 'diego', array('class' => 'form-control')) }}
+      </div>
 
-    <div class="form-group">
-        {{ Form::label('surname', 'Cognom') }}
-        {{ Form::text('surname', 'martinez', array('class' => 'form-control')) }}
+      <div class="form-group">
+          {{ Form::label('surname', 'Cognom') }}
+          {{ Form::text('surname', 'martinez', array('class' => 'form-control')) }}
+      </div>
+
     </div>
 
     <div class="form-group">
