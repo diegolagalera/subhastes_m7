@@ -20,8 +20,7 @@ class HistorialController extends Controller
     ON licitacions.id_usuari=users.id
     WHERE licitacions.guanyador BETWEEN 2 AND 3
     AND data<\''.date('Y-m-j H:i:s').'\'
-    ORDER BY data');
-
+    ORDER BY data DESC LIMIT 10');
     return view('home2')->with('subhasta', $subhasta);
   }
 }

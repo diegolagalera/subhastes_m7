@@ -45,8 +45,8 @@
     <hr>
     <div class="row">
       <div class="col-md-9 mt-auto p-0">
-        <a href="{{ url('/users/'.$user->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
-      </div>
+    <!--  <a href="{{ url('/users/'.$user->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+    --></div>
       <div class="col-md-2 mt-auto p-0">
         <a href="{{ url('/recargar', $user->id) }}" class="btn btn-success pull-left" style="margin-right: 3px;"><i class="fa fa-money"></i> Recargar</a>
       </div>
